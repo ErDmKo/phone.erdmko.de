@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}
+    Кто звонил с телефона {{ object.number }}
+{% endblock %}
+{% block body %}
+    <h1>{{ object.number }}</h1>
+    <h2>Не доверяют {{ question.no }}</h2>
+    <h2>Доверяют {{ question.yes }}</h2>
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Ответ">
+    </form>
+    <a href="/">Назад</a>
+{% endblock %}
